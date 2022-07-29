@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  #box {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  background-color:teal;
+}
+</style>
+<body>
+  <div id ="box" onclick="move()"></div>
+
+<script>
+    function move() {
+        let id = null;
+        const elem = document.getElementById("box");
+        var pos = 0;
+        let pos2 = 0;
+        clearInterval(id);
+        id = setInterval(frame,1);
+        flag = false;
+        function frame() {
+    //first if
+    if(!flag){
+        // if 2 for moving right
+        if (pos == 1720){
+            flag=true;
+            // end of if 2
+        }else{
+            pos++; 
+            elem.style.left = pos + "px"; 
+        }
+
+        // end of first if
+    }else{
+                // if inside else for moving down 
+                if (pos <= 1720){
+                    pos++;     
+                elem.style.top = pos + "px"; 
+                // end of if inside else 
+                }else{
+                    flag=true;
+                    pos=0;
+
+                } // end else 
+                if (pos == 1720) {
+                    clearInterval(id);
+                }
+                else{
+                    pos++;
+                    elem.style.top = pos + "px";
+                }
+
+    
+    }
+   
+        }
+    }
+</script>
+</body>
+</html>
